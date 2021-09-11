@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=B612+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+body {
+  background: transparent !important;
+  font-family: 'Nunito', sans-serif;
+  color: white;
+}
+
+.start-wrapper {
+  position: absolute;
+  top: 10%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: fit-content;
+  padding-top: 30vh;
+  align-items: center;
+}
+
+.start-wrapper p {
+  font-size: 1.6vh;
+  margin-right: 1vh;
+  font-weight: bold;
+  border: solid;
+  padding: 0.9vh 2.5vh;
+  transition: all 0.2s ease-in-out;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.start-wrapper p:hover {
+  transform: scale(1.1);
+}

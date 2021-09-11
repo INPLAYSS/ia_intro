@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Intro I&A SHOP</title>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="button.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body onload="onLoad()" style="background-color: grey;">
+
+    <video autoplay id="video" muted>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+<div id="img" style="margin: auto; position: relative;">
+  <img src="img/logo.png" style="width: 12%; display: block;margin: 0 auto; margin-top: 13%;">
+</div>
+<div id="slider" style="margin: auto; position: relative;">
+  <img src="img/spinner.png" style="width: 3%; display: block;margin: auto; margin-top: 0.3%;" id="spinner">
+</div>
+
+<div id="button" class="start-wrapper" style="display: none;" onclick="onClick()">
+  <p>INICIAR</p>
+</div>
+
+<div id="text" style="margin: auto; position: relative; text-align: center;">
+  <h4 style="display: block;margin: auto; margin-top: 31%; font-family: 'Roboto'; color: white;" id="texto-tips">AAAA</h4>
+</div>
+
+  <style>
+    @keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+    #spinner {
+      animation: spinner .8s linear infinite;
+    }
+    video { 
+   
+   min-width: 100%;
+   min-height: 100%;
+   width: auto;
+   height: auto;
+ 
+   position: fixed;    
+   top: 50%;
+   left: 50%;
+   transform: translateX(-50%) translateY(-50%); 
+       
+   z-index: -100;
+     
+   background-size: cover;
+ 
+ }
+
+  </style>
+
+  <script>
+
+  var Tips = [
+    "El fair play es la clave para que todos los jugadores disfruten.",
+    "Cuando envíes /entorno, recuerda detallar al máximo la situación.",
+    "Para restaurar el chat de voz, puedes utilizar /rvoz.",
+    "Si necesitas ayuda escribe /ayuda en el chat para ser atendido.",
+    "🥵",
+    "Dale ya al play y deja de leer esto, que no hay más frases."
+  ];
+    function onLoad(){
+      console.log(Math.floor(Math.random() * (Tips.length - 0)) + 0)
+      document.getElementById('texto-tips').innerText = Tips[Math.floor(Math.random() * (Tips.length - 0)) + 0];
+    }
+
+    window.addEventListener('message', function (event) {
+        var data = event.data
+    
+      if (data.ingame == true){
+        document.getElementById('slider').style.display = 'none';
+        document.getElementById('button').style.display = 'block';
+        document.getElementById('text').style.marginTop = '34.3%';
+      }
+    });
+
+    function onClick(){
+    
+    console.log('LLEGOO')
+
+      fetch(`https://${GetParentResourceName()}/onclick`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+    }}).then(resp => resp.json()).then(resp => console.log(resp));
+    
+            document.getElementsByTagName('body')[0].style.display = 'none';
+    
+    }
+    
+   
+
+
+  </script>
+
+</body>
+</html>
